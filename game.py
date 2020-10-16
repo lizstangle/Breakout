@@ -38,9 +38,14 @@ BLUE = (0, 0, 255)
 paddle_x = 50
 paddle_y = 50
 
+paddle_x_velocity = 6
+
 # Ball Variables
 ball_x = 250
-ball_y = 0
+ball_y = 250
+
+ball_x_velocity = 6 
+ball_y_velocity = -6
 
 # TODO: Add variables for the "enemy" character
 
@@ -101,14 +106,16 @@ while running:
     #     paddle_y += velocity
 
     # Update the ball
-    ball_y += velocity
+    ball_x += ball_x_velocity
+    ball_y += ball_y_velocity
+
 
     # TODO: Update the enemy's y position based on its velocity
 
     # If ball went off the screen, reset it
     if ball_y > SCREEN_HEIGHT: 
-        ball_y = 0
-        ball_x = random.random() * (SCREEN_WIDTH - CHARACTER_WIDTH)
+        ball_x_velocity = 
+        ball_y_velocity = 
 
     # TODO: If enemy went off the screen, reset it
 
