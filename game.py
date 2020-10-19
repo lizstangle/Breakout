@@ -82,22 +82,6 @@ def is_colliding(x1, y1, x2, y2, width, height):
     return True
 
 
-def is_colliding2(ball_x_min, ball_x_max, ball_y_min, ball_y_max,
-                  paddle_x_min, paddle_x_max, paddle_y_min, paddle_y_max):
-    """Returns True if two rectangles are colliding, or False otherwise"""
-    # If one rectangle is on left side of the other 
-    if (ball_y_max >= paddle_y_min):
-        return True
-  
-    # If one rectangle is above the other
-    if (y1 >= y2 + height) or (y2 >= y1 + height):
-        return False
-  
-    return True
-
-
-
-
 def draw_text(text, color, font_size, x, y):
     font = pygame.font.SysFont(None, font_size)
     img = font.render(text, True, color)
@@ -140,9 +124,9 @@ while running:
     # If ball goes off the screen, make it reverse direction to stay on screen
     # There are 4 limits and everytime it exceeds 1 limit it needs to flip opposite direction  
     if ball_y > SCREEN_HEIGHT: 
-        ball_y_velocity = -ball_y_velocity
+        ball_y = 0
 
-    if ball_x > SCREEN_HEIGHT:
+    if ball_x > SCREEN_WIDTH:
         ball_x_velocity = -ball_x_velocity
 
     if ball_y < 0:
@@ -153,10 +137,10 @@ while running:
 
 
     # If paddle collides with ball, reset it & increment points
-    if is_colliding(paddle_x, paddle_y, ball_x, ball_y, PADDLE_WIDTH, PADDLE_HEIGHT, BALL_WIDTH, BALL_HEIGHT):
+    # BALL_WIDTH, BALL_HEIGHT
+    if is_colliding(paddle_x, paddle_y, ball_x, ball_y, PADDLE_WIDTH, PADDLE_HEIGHT):
         points += 1
-        ball_y = 0
-        ball_x = random.random() * (SCREEN_WIDTH - PADDLE_WIDTH)
+        ball_y_velocity = -ball_y_velocity
 
     # TODO: If paddle collides with enemy, reset it & set points to 0
 
@@ -166,12 +150,8 @@ while running:
     # Draw the paddle as a blue rectangle
     pygame.draw.rect(screen, BLUE, (paddle_x, paddle_y, PADDLE_WIDTH, PADDLE_HEIGHT))
 
-    # pygame.draw.rect(screen, RED, (paddle_x, paddle_y, PADDLE_WIDTH, PADDLE_HEIGHT))
-
     # Draw the ball as a red square
     pygame.draw.rect(screen, RED, (ball_x, ball_y, BALL_WIDTH, BALL_HEIGHT))
-
-    # TODO: Draw the enemy as a red square
 
     # Draw the points
     draw_text(text=f'Points: {points}', color=BLACK, font_size=24, x=20, y=20)
