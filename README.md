@@ -1,18 +1,20 @@
-This is a rudimentary Breakout game. It was built utilizing starter code used in Pygame Lab (details below).
+This is a rudimentary Breakout game that the user will play in Terminal. 
+
+It was built utilizing starter code used in Pygame Lab (details below).
 
 The current skateboard version contains a paddle and a ball that, when they collide with one another causes the ball to bounce, reversing direction. 
 
-Everytime the ball and paddle collide creates a point. 
+Everytime the ball and paddle collide the user gets a point.  
 
 When the ball and paddle do not collide the ball resets from the top of the screen. 
 
-Future versions will include bricks and ball tracking.
+Future versions will include bricks with additional scoring logic and ball tracking.
 
 # Pygame Lab
 
 ## Install Pygame
 
-I installed Pygame with the command:
+I installed and utilized Pygame according to the following:
 
 ```
 pip3 install pygame
