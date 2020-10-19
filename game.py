@@ -27,6 +27,13 @@ SCREEN_HEIGHT = 500
 CHARACTER_WIDTH = 40
 CHARACTER_HEIGHT = 40
 
+BALL_WIDTH = 10
+BALL_HEIGHT = 10
+
+
+PADDLE_WIDTH = 70
+PADDLE_HEIGHT = 10
+
 # Color constants 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -35,8 +42,8 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
 # Paddle Variables
-paddle_x = 50
-paddle_y = 50
+paddle_x = 10
+paddle_y = 10
 
 paddle_x_velocity = 6
 
@@ -50,7 +57,7 @@ ball_y_velocity = -6
 # TODO: Add variables for the "enemy" character
 
 # Other variables
-velocity = 3
+velocity = 10
 points = 0
 
 # Set up the drawing window
@@ -139,10 +146,10 @@ while running:
     screen.fill(WHITE)
 
     # Draw the paddle as a blue square
-    pygame.draw.rect(screen, BLUE, (paddle_x, paddle_y, CHARACTER_WIDTH, CHARACTER_HEIGHT))
+    pygame.draw.rect(screen, BLUE, (paddle_x, paddle_y, PADDLE_WIDTH, PADDLE_HEIGHT))
 
-    # Draw the ball as a green square
-    pygame.draw.rect(screen, GREEN, (ball_x, ball_y, CHARACTER_WIDTH, CHARACTER_HEIGHT))
+    # Draw the ball as a red square
+    pygame.draw.rect(screen, RED, (ball_x, ball_y, BALL_WIDTH, BALL_HEIGHT))
 
     # TODO: Draw the enemy as a red square
 
