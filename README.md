@@ -1,10 +1,18 @@
-# Pygame Lab
+This is a rudimentary Breakout game. It was built utilizing starter code used in Pygame Lab (details below).
 
-This is the starter code used in the [Intensive 1 Pygame Lab](https://docs.google.com/presentation/d/18rlJz5q78frWXSEdH5cXDFJAdL1CZTz02tm3hleWIz4/edit?usp=sharing).
+The current skateboard version contains a paddle and a ball that, when they collide with one another causes the ball to bounce, reversing direction. 
+
+Everytime the ball and paddle collide creates a point. 
+
+When the ball and paddle do not collide the ball resets from the top of the screen. 
+
+Future versions will include bricks and ball tracking.
+
+# Pygame Lab
 
 ## Install Pygame
 
-You can install Pygame with the command:
+I installed Pygame with the command:
 
 ```
 pip3 install pygame
@@ -31,5 +39,3 @@ Run the interactive game with the command:
 ```
 python3 game.py
 ```
-
-Then, complete the TODOs to add an "enemy" character (red square) that will reset points to 0 if it collides with the player.
