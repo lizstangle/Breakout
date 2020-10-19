@@ -44,7 +44,6 @@ ball_y = 250
 ball_x_velocity = 6 
 ball_y_velocity = -6
 
-# TODO: Add variables for the "enemy" character
 #speed of paddle
 # Other variables
 velocity = 15
