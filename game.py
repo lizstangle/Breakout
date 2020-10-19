@@ -112,12 +112,16 @@ while running:
 
     # TODO: Update the enemy's y position based on its velocity
 
-    # If ball went off the screen, reset it
+    # If ball goes off the screen, make it reverse direction to stay on screen
     if ball_y > SCREEN_HEIGHT: 
-        ball_x_velocity = 
-        ball_y_velocity = 
+        ball_y_velocity = -ball_y_velocity
 
-    # TODO: If enemy went off the screen, reset it
+    if ball_x > SCREEN_HEIGHT:
+        ball_x_velocity = -ball_x_velocity
+
+    if ball_y < 0:
+        
+
 
     # If paddle collides with ball, reset it & increment points
     if is_colliding(paddle_x, paddle_y, ball_x, ball_y, CHARACTER_WIDTH, CHARACTER_HEIGHT):
