@@ -104,7 +104,7 @@ while running:
 
     keys = pygame.key.get_pressed()
 
-    # Update the paddle
+    # Updates the paddle to keep it within boundaries of the screen
     buffer = 10
     if keys[pygame.K_LEFT]:
         if paddle_x > buffer:
@@ -117,22 +117,21 @@ while running:
     ball_x += ball_x_velocity
     ball_y += ball_y_velocity
 
-    # If ball goes off the screen, make it reverse direction to stay on screen
-    # There are 4 limits and everytime it exceeds 1 limit it needs to flip opposite direction  
+    # If ball goes to the floor then ball resets to the top of the screen  
     if ball_y > SCREEN_HEIGHT: 
         # reset
         ball_y = 0
 
     if ball_x > SCREEN_WIDTH:
-        # bounce
+        # bounce - if ball hits the right boundary of the screen it will reverse direction
         ball_x_velocity = -ball_x_velocity
 
     if ball_y < 0:
-        # bounce
+        # bounce - ball will reverse direction when it hits top of screen
         ball_y_velocity = -ball_y_velocity
 
     if ball_x < 0: 
-        # bounce
+        # bounce - if ball hits the left boundary of the screen it will reverse direction
         ball_x_velocity = -ball_x_velocity   
 
 
@@ -140,8 +139,6 @@ while running:
     if is_colliding(paddle_x, paddle_y, ball_x, ball_y, PADDLE_WIDTH, PADDLE_HEIGHT):
         points += 1
         ball_y_velocity = -ball_y_velocity
-
-    # TODO: If paddle collides with enemy, reset it & set points to 0
 
     # Fill screen with white
     screen.fill(WHITE)
