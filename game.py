@@ -105,39 +105,38 @@ while running:
     keys = pygame.key.get_pressed()
 
     # Update the paddle
+    buffer = 10
     if keys[pygame.K_LEFT]:
-        paddle_x -= velocity
+        if paddle_x > buffer:
+            paddle_x -= velocity
     if keys[pygame.K_RIGHT]:
-        paddle_x += velocity
-    # if keys[pygame.K_UP]:
-    #     paddle_y -= velocity
-    # if keys[pygame.K_DOWN]:
-    #     paddle_y += velocity
+        if paddle_x + PADDLE_WIDTH + buffer < SCREEN_WIDTH :
+            paddle_x += velocity
 
     # Update the ball
     ball_x += ball_x_velocity
     ball_y += ball_y_velocity
 
-
-    # TODO: Update the enemy's y position based on its velocity
-
     # If ball goes off the screen, make it reverse direction to stay on screen
     # There are 4 limits and everytime it exceeds 1 limit it needs to flip opposite direction  
     if ball_y > SCREEN_HEIGHT: 
+        # reset
         ball_y = 0
 
     if ball_x > SCREEN_WIDTH:
+        # bounce
         ball_x_velocity = -ball_x_velocity
 
     if ball_y < 0:
+        # bounce
         ball_y_velocity = -ball_y_velocity
 
     if ball_x < 0: 
+        # bounce
         ball_x_velocity = -ball_x_velocity   
 
 
-    # If paddle collides with ball, reset it & increment points
-    # BALL_WIDTH, BALL_HEIGHT
+    # If paddle collides with ball, bounce the ball & increment points
     if is_colliding(paddle_x, paddle_y, ball_x, ball_y, PADDLE_WIDTH, PADDLE_HEIGHT):
         points += 1
         ball_y_velocity = -ball_y_velocity
