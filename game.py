@@ -153,10 +153,10 @@ while running:
 
 
     # If paddle collides with ball, reset it & increment points
-    if is_colliding(paddle_x, paddle_y, ball_x, ball_y, CHARACTER_WIDTH, CHARACTER_HEIGHT):
+    if is_colliding(paddle_x, paddle_y, ball_x, ball_y, PADDLE_WIDTH, PADDLE_HEIGHT, BALL_WIDTH, BALL_HEIGHT):
         points += 1
         ball_y = 0
-        ball_x = random.random() * (SCREEN_WIDTH - CHARACTER_WIDTH)
+        ball_x = random.random() * (SCREEN_WIDTH - PADDLE_WIDTH)
 
     # TODO: If paddle collides with enemy, reset it & set points to 0
 
