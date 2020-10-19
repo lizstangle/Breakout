@@ -79,6 +79,23 @@ def is_colliding(x1, y1, x2, y2, width, height):
   
     return True
 
+
+def is_colliding2(ball_x_min, ball_x_max, ball_y_min, ball_y_max,
+                  paddle_x_min, paddle_x_max, paddle_y_min, paddle_y_max):
+    """Returns True if two rectangles are colliding, or False otherwise"""
+    # If one rectangle is on left side of the other 
+    if (ball_y_max >= paddle_y_min):
+        return True
+  
+    # If one rectangle is above the other
+    if (y1 >= y2 + height) or (y2 >= y1 + height):
+        return False
+  
+    return True
+
+
+
+
 def draw_text(text, color, font_size, x, y):
     font = pygame.font.SysFont(None, font_size)
     img = font.render(text, True, color)
