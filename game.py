@@ -1,14 +1,3 @@
-################################################################################
-# INSTRUCTIONS:
-# Complete the TODOS below to add another "enemy" character. When the player 
-# collides with the enemy, it should reset points to 0.
-# 
-# STRETCH CHALLENGES (complete if you've already finished the main challenge):
-# 1. Add a "You Lose" screen that shows for 2 seconds if the player collides
-#    with an enemy.
-# 2. Create multiple enemies that can all fall at once.
-################################################################################
-
 import pygame
 import random
 
@@ -33,7 +22,7 @@ BALL_HEIGHT = 10
 PADDLE_WIDTH = 70
 PADDLE_HEIGHT = 10
 
-# Color constants 
+# Color constants
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -44,7 +33,7 @@ YELLOW = (255, 255, 0)
 
 # Paddle Variables
 paddle_x = 2
-paddle_y = SCREEN_HEIGHT - PADDLE_HEIGHT * 1.20
+paddle_y = SCREEN_HEIGHT - PADDLE_HEIGHT
 
 paddle_x_velocity = 20
 
