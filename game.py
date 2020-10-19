@@ -39,10 +39,12 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+PURPLE = (128, 0, 128)
+YELLOW = (255, 255, 0)
 
 # Paddle Variables
 paddle_x = 2
-paddle_y = SCREEN_HEIGHT - PADDLE_HEIGHT * 1.25
+paddle_y = SCREEN_HEIGHT - PADDLE_HEIGHT * 1.20
 
 paddle_x_velocity = 20
 
@@ -164,7 +166,7 @@ while running:
     # Draw the paddle as a blue rectangle
     pygame.draw.rect(screen, BLUE, (paddle_x, paddle_y, PADDLE_WIDTH, PADDLE_HEIGHT))
 
-    pygame.draw.rect(screen, RED, (paddle_x, paddle_y, PADDLE_WIDTH, PADDLE_HEIGHT))
+    # pygame.draw.rect(screen, RED, (paddle_x, paddle_y, PADDLE_WIDTH, PADDLE_HEIGHT))
 
     # Draw the ball as a red square
     pygame.draw.rect(screen, RED, (ball_x, ball_y, BALL_WIDTH, BALL_HEIGHT))
