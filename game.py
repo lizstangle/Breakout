@@ -113,6 +113,7 @@ while running:
     # TODO: Update the enemy's y position based on its velocity
 
     # If ball goes off the screen, make it reverse direction to stay on screen
+    # There are 4 limits and everytime it exceeds 1 limit it needs to flip opposite direction  
     if ball_y > SCREEN_HEIGHT: 
         ball_y_velocity = -ball_y_velocity
 
@@ -120,7 +121,10 @@ while running:
         ball_x_velocity = -ball_x_velocity
 
     if ball_y < 0:
-        
+        ball_y_velocity = -ball_y_velocity
+
+    if ball_x < 0: 
+        ball_x_velocity = -ball_x_velocity   
 
 
     # If paddle collides with ball, reset it & increment points
